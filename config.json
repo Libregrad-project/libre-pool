@@ -1,0 +1,172 @@
+{
+    "coin": "Libre",
+    "symbol": "LBR",
+    "coinUnits": 100000000,
+    "coinDifficultyTarget": 240,
+
+    "logging": {
+        "files": {
+            "level": "info",
+            "directory": "logs",
+            "flushInterval": 5
+        },
+        "console": {
+            "level": "info",
+            "colors": true
+        }
+    },
+
+    "poolServer": {
+        "enabled": true,
+        "cluster" : "default",
+        "poolAddress":  "WALLET_ADDRESS",
+        "blockRefreshInterval": 1000,
+        "minerTimeout": 900,
+
+        "ports": [
+            {
+            "port": 3333,
+            "difficulty": 1000,
+            "description": "Lower end mining pool for Libre."
+        },
+        {
+            "port": 5555,
+            "difficulty": 4000,
+            "description": "Higher end mining pool for Libre."
+        },
+        {
+            "port": 7777,
+            "difficulty": 8000,
+            "description": "High difficulty mining pool for Libre."
+        },
+        {
+            "port": 9999,
+            "difficulty": 16000,
+            "description": "Very high difficulty mining pool for Libre.",
+            "hidden": true
+        }
+        ],
+
+        "varDiff": {
+            "minDiff": 100,
+            "maxDiff": 16000,
+            "targetTime": 100,
+            "retargetTime": 30,
+            "maxJump": 100
+        },
+        "fixedDiff": {
+            "enabled": false,
+            "addressSeperator": ":"
+        },
+        "shareTrust": {
+            "enabled": true,
+            "min": 10,
+            "stepDown": 3,
+            "threshold": 10,
+            "penalty": 30
+        },
+        "banning": {
+            "enabled": true,
+            "time": 600,
+            "invalidPercent": 25,
+            "checkThreshold": 30
+        }
+    },
+
+    "payments": {
+        "eneabled": true,
+        "interval": 160,
+        "minPayment": 1000000,
+        "maxPayment": 1000000000,
+        "transferFee": 10000
+    },
+    "api": {
+        "enabled": true,
+        "hashrateWindow": 600,
+        "updateInterval": 5,
+        "port": 8117,
+        "blocks": 30,
+        "payments": 30,
+        "admin_password": "admin"
+    },
+    "daemon": {
+        "host": "127.0.0.1",
+        "port": 8139
+    },
+    "wallet": {
+        "host": "127.0.1",
+        "port": 8082
+    },
+    "redis": {
+        "host": "127.0.1",
+        "port": 6379
+    },
+    "database": {
+        "host": "127.0.1",
+        "port": 27017,
+        "name": "libre",
+        "username": "",
+        "password": "",
+        "poolCollection": "pools",
+        "blockCollection": "blocks",
+        "transactionCollection": "transactions",
+        "minerCollection": "miners",
+        "paymentCollection": "payments",
+        "shareCollection": "shares"
+    },
+    "monitoring": {
+        "daemon": {
+            "checkInterval": 60,
+            "rpcMethod": "getblockcount"
+        },
+        "wallet": {
+            "checkInterval": 60,
+            "rpcMethod": "getbalance"
+        }
+    },
+    "charts": {
+        "pool": {
+            "hashrate": {
+                "enabled": true,
+                "updateInterval": 60,
+                "stepInterval": 1800,
+                "maximumPeriod": 86400
+            },
+            "workers": {
+                "enabled": true,
+                "updateInterval": 60,
+                "stepInterval": 1800,
+                "maximumPeriod": 86400
+            },
+            "difficulty": {
+                "enabled": true,
+                "updateInterval": 1800,
+                "stepInterval": 10800,
+                "maximumPeriod": 604800
+            },
+            "price": {
+                "enabled": true,
+                "updateInterval": 1800,
+                "stepInterval": 10800,
+                "maximumPeriod": 604800
+            },
+            "profit": {
+                "enabled": true,
+                "updateInterval": 1800,
+                "stepInterval": 10800,
+                "maximumPeriod": 604800
+            }
+        },
+        "user": {
+            "hashrate": {
+                "enabled": true,
+                "updateInterval": 180,
+                "stepInterval": 1800,
+                "maximumPeriod": 86400
+            },
+            "payments": {
+                "enabled": true
+            }
+        }
+    }
+}
