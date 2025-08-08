@@ -18,7 +18,7 @@
 
     "poolServer": {
         "enabled": true,
-        "cluster" : "default",
+        "clusterForks" : "auto",
         "poolAddress":  "WALLET_ADDRESS",
         "blockRefreshInterval": 1000,
         "minerTimeout": 900,
