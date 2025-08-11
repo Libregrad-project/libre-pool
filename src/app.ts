@@ -1,7 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import walletRoutes from './routes/wallet.routes'
-
+import poolRoutes from './routes/pool.routes'
 const app = express()
 
 const corsOptions = {
@@ -14,5 +14,6 @@ const corsOptions = {
 app.use(cors())
 app.use(express.json())
 app.use('/api', walletRoutes)
+app.use('/api', poolRoutes) 
 
 export default app

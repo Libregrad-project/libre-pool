@@ -47,6 +47,20 @@ export class WalletController {
     }
   }
 
+
+
+   static async getTotalMiners(req: Request, res: Response) {
+    try {
+      const totalMiners = await walletService.getTotalMiners()
+      return res.json({ totalMiners })
+    } catch (err: any) {
+      return res.status(500).json({ error: err.message })
+    }
+  }
+
+
+
+
   static async addPayment(req: Request, res: Response) {
     const address = req.params.address
     const { amount, txHash } = req.body

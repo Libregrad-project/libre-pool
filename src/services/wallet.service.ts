@@ -65,6 +65,17 @@ export class WalletService {
     return this.getWallet(address) as Promise<Wallet>
   }
 
+
+ 
+    async getTotalMiners(): Promise<number> {
+      const row = await db.get<{ count: number }>(
+        `SELECT COUNT(*) as count FROM wallets`
+      )
+      return row ? row.count : 0
+    }
+
+
+
   async addPayment(address: string, amount: number, txHash: string): Promise<Payment> {
     const wallet = await db.get<Wallet>(`SELECT * FROM wallets WHERE address = ?`, address)
     if (!wallet) throw new Error('Wallet not found')
