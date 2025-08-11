@@ -3,6 +3,7 @@ import net from 'net'
 export class TcpServerService {
   private server: net.Server | null = null
   private port: number
+  private diff: number
 
   constructor(port: number) {
     this.port = port
@@ -16,7 +17,7 @@ export class TcpServerService {
         console.log("Recieved data:", data.toString())
 
         // Todo: Parse the miner data here, e.g. Stratum
-
+        // For now, just echo back.
         socket.write('ACK\n')
       })
 
