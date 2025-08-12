@@ -35,7 +35,5 @@ export class PoolService {
     uptimeStr += `${displaySeconds}s`
 
     return uptimeStr.trim()
-  }
-  
-  
+  }  
 }
